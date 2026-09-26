@@ -2,7 +2,8 @@
 
 Assignments and Projects for Ubuntu Linux Command Line through the Computation Tools and Methods course at Humber Polytechnic Clinical Bioinformatics
 
-##Assignment 1
+## Assignment 1
+
 A) Directory and File Management
 1. Create the following directory structure starting from your home directory:
 STUDENT_ID_assignment/lesson1/partA/dir1/,
