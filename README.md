@@ -98,7 +98,7 @@ STUDENT_ID_assignment/
 | `mkdir -p` | Create nested directories |
 | `touch` | Create empty files |
 | `ls` | List directory contents |
-| `tree` | Display directory hierarchy |
+| `R` | Display directory hierarchy |
 | `history` | Display previously executed commands |
 
 #### Example Commands
@@ -111,7 +111,7 @@ mkdir -p ~/STUDENT_ID_assignment/lesson1/partA/dir1/subdir1
 touch file1.txt file2.txt file3.txt file4.txt file5.txt
 
 # Display directory structure
-tree ~/STUDENT_ID_assignment
+-R ~/STUDENT_ID_assignment
 
 # View command history
 history
@@ -165,7 +165,7 @@ Practice navigating the Linux filesystem and performing common file operations u
 | `mv` | Move or rename files |
 | `cp` | Copy files |
 | `rm` | Remove files |
-| `tree` | Verify directory structure |
+| `R` | Verify directory structure |
 | `history` | Review executed commands |
 
 #### Example Commands
