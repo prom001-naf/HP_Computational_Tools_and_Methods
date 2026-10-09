@@ -1,51 +1,327 @@
-# HP_Computational_Tools_and_Methods
 
-Assignments and Projects for Ubuntu Linux Command Line through the Computation Tools and Methods course at Humber Polytechnic Clinical Bioinformatics
+# Computational Tools and Methods | Humber Polytechnic
 
-## Assignment 1
+A collection of Linux command-line assignments, practical exercises, and projects completed as part of the **Clinical Bioinformatics program at Humber Polytechnic**.
 
-A) Directory and File Management
-1. Create the following directory structure starting from your home directory:
-STUDENT_ID_assignment/lesson1/partA/dir1/,
-STUDENT_ID_assignment/lesson1/partA/dir2/,
-STUDENT_ID_assignment/lesson1/partB/, and
-STUDENT_ID_assignment/lesson1/partC/.
-2. Inside dir1, create subdirectories subdir1 and subdir2, and create five files named
-file1.txt, file2.txt, file3.txt, file4.txt, and file5.txt.
-3. Inside dir2, create subdirectories subdir3 and subdir4, and create three files named
-file6.txt, file7.txt, and file8.txt.
-4. Inside partB, create a directory named subdir5 and create two files within it: file9.txt and
-file10.txt.
-5. Inside partC, create a directory named subdir6 and create a file named file11.txt within it.
-6. Screenshot Instructions:
-1. Take a screenshot of the directory structure using the tree command from
-STUDENT_ID_assignment
-2. Take a screenshot of the command history using the history command
+This repository documents my development of foundational computational skills using Ubuntu Linux, including filesystem navigation, directory management, file operations, and command-line documentation.
 
-B) Path Navigation and File Operations
-1. Navigate to STUDENT_ID_assignment/lesson1/partA/dir1/subdir1 using absolute and
-relative paths.
-2. Display the current directory path using pwd.
-3. Move file4.txt from dir1 to partB/subdir5/.
-4. Rename file7.txt to file7_renamed.txt in dir2.
-5. Copy file1.txt from dir1 to dir2/subdir3/.
-6. Copy file9.txt from partB/subdir5/ to STUDENT_ID_assignment/lesson1/partA/dir1/.
-7. Delete file5.txt from dir1 and file10.txt from partB/subdir5/.
-8. Screenshot Instructions:
-1. Take a screenshot of the directory structure using the tree command from
-STUDENT_ID_assignment
-2. Take a screenshot of the command history using the history command
+These skills provide a foundation for working with bioinformatics software, biological datasets, and computational research environments.
 
-C) Documentation
-1. Use man hier to read the manual for the file system hierarchy. Explain the purpose of the
-/mnt, /proc, /sys, /srv, /root, /run folders
-2. Use man to read the manual for the rm command. Summarize the purpose and usage of
-the -r and -i options.
-3. Use --help for the cp command and note down what each of the following options does: -
-r, -i, -u.
-4. Screenshot Instructions:
-1. Take a screenshot of the history command output
-Files to Submit:
-• A PDF summarizing your findings and explanations.
-• Screenshots of the directory structures, file operations, and command history.
+---
+
+## 📚 Course Overview
+
+**Institution:** Humber Polytechnic  
+**Program:** Clinical Bioinformatics (Ontario Graduate Certificate)  
+**Course:** Computational Tools and Methods  
+**Operating System:** Ubuntu Linux  
+**Environment:** Linux Terminal / Bash
+
+### Learning Objectives
+
+- Navigate and manage the Linux filesystem.
+- Create and organize hierarchical directory structures.
+- Perform file and directory operations using terminal commands.
+- Understand absolute and relative file paths.
+- Interpret Linux filesystem conventions.
+- Use command-line documentation to understand command options.
+- Develop reproducible command-line workflows.
+
+---
+
+## 🖥️ Assignment 1: Linux Filesystem and Command-Line Fundamentals
+
+### Assignment Overview
+
+This assignment introduces fundamental Linux command-line operations through directory organization, filesystem navigation, file manipulation, and command documentation.
+
+The objective is to develop familiarity with the Ubuntu terminal and understand how files and directories are managed in a Linux environment.
+
+The assignment is divided into three components:
+
+1. Directory and File Management
+2. Path Navigation and File Operations
+3. Linux Command Documentation
+
+---
+
+### Part A: Directory and File Management
+
+#### Objective
+
+Create a hierarchical directory structure using Linux terminal commands and verify the resulting organization.
+
+#### Tasks
+
+- Create nested directories within the home directory.
+- Organize files across multiple directory levels.
+- Create empty text files using terminal commands.
+- Display the directory hierarchy using `tree`.
+- Review executed commands using `history`.
+
+#### Directory Structure
+
+The initial directory hierarchy is organized as follows:
+
+```text
+STUDENT_ID_assignment/
+└── lesson1/
+    ├── partA/
+    │   ├── dir1/
+    │   │   ├── subdir1/
+    │   │   ├── subdir2/
+    │   │   ├── file1.txt
+    │   │   ├── file2.txt
+    │   │   ├── file3.txt
+    │   │   ├── file4.txt
+    │   │   └── file5.txt
+    │   └── dir2/
+    │       ├── subdir3/
+    │       ├── subdir4/
+    │       ├── file6.txt
+    │       ├── file7.txt
+    │       └── file8.txt
+    ├── partB/
+    │   └── subdir5/
+    │       ├── file9.txt
+    │       └── file10.txt
+    └── partC/
+        └── subdir6/
+            └── file11.txt
+```
+
+#### Commands Practiced
+
+| Command | Purpose |
+|---------|---------|
+| `mkdir` | Create directories |
+| `mkdir -p` | Create nested directories |
+| `touch` | Create empty files |
+| `ls` | List directory contents |
+| `tree` | Display directory hierarchy |
+| `history` | Display previously executed commands |
+
+#### Example Commands
+
+```bash
+# Create nested directories
+mkdir -p ~/STUDENT_ID_assignment/lesson1/partA/dir1/subdir1
+
+# Create multiple files
+touch file1.txt file2.txt file3.txt file4.txt file5.txt
+
+# Display directory structure
+tree ~/STUDENT_ID_assignment
+
+# View command history
+history
+```
+
+---
+
+### Part B: Path Navigation and File Operations
+
+#### Objective
+
+Practice navigating the Linux filesystem and performing common file operations using absolute and relative paths.
+
+#### Tasks
+
+**1. Directory Navigation**
+
+- Navigate to a nested directory using an absolute path.
+- Navigate to the same directory using a relative path.
+- Display the current working directory.
+
+**2. Moving Files**
+
+- Move `file4.txt` from `dir1` to `partB/subdir5`.
+
+**3. Renaming Files**
+
+- Rename `file7.txt` to `file7_renamed.txt`.
+
+**4. Copying Files**
+
+- Copy `file1.txt` into `dir2/subdir3`.
+- Copy `file9.txt` into `dir1`.
+
+**5. Deleting Files**
+
+- Remove `file5.txt` from `dir1`.
+- Remove `file10.txt` from `partB/subdir5`.
+
+**6. Verifying Changes**
+
+- Display the updated directory hierarchy.
+- Review the command history.
+
+#### Commands Practiced
+
+| Command | Purpose |
+|---------|---------|
+| `cd` | Change directory |
+| `pwd` | Print current working directory |
+| `mv` | Move or rename files |
+| `cp` | Copy files |
+| `rm` | Remove files |
+| `tree` | Verify directory structure |
+| `history` | Review executed commands |
+
+#### Example Commands
+
+```bash
+# Navigate using an absolute path
+cd ~/STUDENT_ID_assignment/lesson1/partA/dir1/subdir1
+
+# Display current location
+pwd
+
+# Move a file
+mv file4.txt /path/to/destination/
+
+# Rename a file
+mv file7.txt file7_renamed.txt
+
+# Copy a file
+cp file1.txt /path/to/destination/
+
+# Delete a file
+rm file5.txt
+```
+
+*Note: Example destination paths are placeholders and must be adjusted to match the working directory.*
+
+---
+
+### Part C: Linux Filesystem Documentation
+
+#### Objective
+
+Develop familiarity with Linux documentation tools and understand important filesystem directories and command-line options.
+
+#### 1. Linux Filesystem Hierarchy
+
+The `man hier` command provides documentation about the standard Linux filesystem hierarchy.
+
+```bash
+man hier
+```
+
+The assignment explores the following directories:
+
+| Directory | Purpose |
+|-----------|---------|
+| `/mnt` | Temporary mounting point for filesystems |
+| `/proc` | Virtual filesystem containing process and kernel information |
+| `/sys` | Virtual filesystem exposing kernel and device information |
+| `/srv` | Data associated with services provided by the system |
+| `/root` | Home directory of the root user |
+| `/run` | Runtime data used by processes and system services |
+
+#### 2. Understanding the `rm` Command
+
+```bash
+man rm
+```
+
+| Option | Description |
+|--------|-------------|
+| `rm -r` | Recursively remove directories and their contents |
+| `rm -i` | Prompt for confirmation before each removal |
+
+#### 3. Understanding the `cp` Command
+
+```bash
+cp --help
+```
+
+| Option | Description |
+|--------|-------------|
+| `cp -r` | Recursively copy directories and their contents |
+| `cp -i` | Prompt before overwriting existing files |
+| `cp -u` | Copy when the source is newer than the destination or the destination is missing |
+
+#### Documentation Skills
+
+- Reading manual pages using `man`.
+- Accessing command usage information with `--help`.
+- Understanding command flags and options.
+- Interpreting filesystem documentation.
+- Applying commands safely during file operations.
+
+---
+
+## 🛠️ Technical Skills Developed
+
+| Category | Skills |
+|----------|--------|
+| Operating System | Ubuntu Linux |
+| Command-Line Environment | Bash |
+| Filesystem Navigation | `cd`, `pwd`, `ls` |
+| Directory Management | `mkdir`, `tree` |
+| File Operations | `touch`, `cp`, `mv`, `rm` |
+| Documentation | `man`, `--help` |
+| Workflow Tracking | `history` |
+| Path Management | Absolute and relative paths |
+
+---
+
+## 🎯 Key Learning Outcomes
+
+Through this assignment, I developed foundational experience in:
+
+1. Navigating the Linux filesystem using terminal commands.
+2. Creating and organizing hierarchical directory structures.
+3. Performing file creation, copying, moving, renaming, and deletion.
+4. Understanding the differences between absolute and relative paths.
+5. Using Linux documentation to interpret commands and their options.
+6. Verifying filesystem changes through directory visualization and command history.
+
+These skills establish a foundation for more advanced computational workflows.
+
+---
+
+## 🧬 Relevance to Bioinformatics
+
+Linux is widely used in bioinformatics because many computational biology tools and analytical workflows operate through command-line environments.
+
+The skills introduced in this assignment are relevant to:
+
+- Organizing genomic and transcriptomic datasets.
+- Navigating directories containing FASTQ, FASTA, BAM, and VCF files.
+- Managing input and output files for bioinformatics software.
+- Working with remote Linux servers and high-performance computing environments.
+- Preparing for automated data processing pipelines.
+- Supporting reproducible computational research.
+
+Although this assignment focuses on foundational filesystem operations, these concepts are essential for more advanced bioinformatics analyses.
+
+---
+
+## 📁 Repository Contents
+
+This repository will contain completed assignments, supporting documentation, and future course projects.
+
+### Assignment 1
+
+- Completed assignment report (PDF)
+- Directory structure screenshots
+- Command history screenshots
+- Linux command documentation and explanations
+
+---
+
+## 🚀 Future Development
+
+As the course progresses, this repository will be updated with additional assignments and projects involving computational tools and methods used in bioinformatics.
+
+---
+
+## 👨‍💻 Author
+
+**Nafis Mohammad**  
+Clinical Bioinformatics | Humber Polytechnic
+
+**Research Interests:** Bioinformatics, Computational Biology, Cancer Genomics, and Biomedical Data Analysis
 
