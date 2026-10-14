@@ -299,16 +299,492 @@ Although this assignment focuses on foundational filesystem operations, these co
 
 ---
 
-## 📁 Repository Contents
+## 🖥️ Assignment 2: Linux Text Processing and Log File Analysis
 
-This repository will contain completed assignments, supporting documentation, and future course projects.
+### 📌 Assignment Overview
 
-### Assignment 1
+This assignment builds upon foundational Linux command-line skills by introducing tools for searching, filtering, transforming, analyzing, and archiving structured text data.
 
-- Completed assignment report (PDF)
-- Directory structure screenshots
-- Command history screenshots
-- Linux command documentation and explanations
+A simulated system log file, `lab_2.txt`, was used throughout the assignment to practice extracting and manipulating information using standard Linux command-line utilities.
+
+The assignment focused on five main areas:
+
+1. Log file setup and preparation
+2. Pattern searching with `grep`
+3. Text transformation with `sed`
+4. Structured text processing with `awk`
+5. File compression and archiving with `tar`
+
+---
+
+## 📝 Part A: Log File Setup
+
+### Objective
+
+Create and prepare a structured log file for command-line text processing.
+
+The log file contains timestamped system events with severity levels such as:
+
+- `INFO`
+- `DEBUG`
+- `WARNING`
+- `ERROR`
+
+Example log entries:
+
+```text
+2024-09-23 12:00:00 INFO Process started
+2024-09-23 12:10:00 WARNING Memory usage is high
+2024-09-23 12:12:00 ERROR Could not find file /path/to/file
+```
+
+The file was created directly from the terminal using:
+
+```bash
+nano lab_2.txt
+```
+
+A Student ID was then prepended to every line using `sed`:
+
+```bash
+sed -i 's/^/STUDENT_ID /' lab_2.txt
+```
+
+### Concepts Practiced
+
+- Creating and editing files with `nano`
+- Working with structured log files
+- Understanding timestamps and severity levels
+- Using regular expressions
+- Modifying files with `sed`
+- Performing in-place text edits
+
+---
+
+## 🔍 Part B: Pattern Searching with `grep`
+
+### Objective
+
+Use `grep` to search the log file for specific patterns and extract relevant information.
+
+### Tasks
+
+1. Extract all lines containing `INFO`.
+2. Count the number of `INFO` lines.
+3. Search for `ERROR` using case-insensitive matching.
+4. Count how many times the word `user` appears.
+5. Display the lines containing `user`.
+6. Search for lines containing `memory` or `connection`.
+7. Display matching lines with their line numbers.
+8. Extract lines containing `file`.
+9. Count the total number of matching lines.
+
+### Commands and Options Practiced
+
+| Command / Option | Purpose |
+|------------------|---------|
+| `grep` | Search text for matching patterns |
+| `grep -i` | Perform a case-insensitive search |
+| `grep -c` | Count matching lines |
+| `grep -n` | Display line numbers with matches |
+| `grep -E` | Use extended regular expressions |
+| `grep -o` | Display only matching text |
+
+### Example Commands
+
+Search for all `INFO` entries:
+
+```bash
+grep "INFO" lab_2.txt
+```
+
+Search for `ERROR` regardless of capitalization:
+
+```bash
+grep -i "ERROR" lab_2.txt
+```
+
+Count matching lines:
+
+```bash
+grep -c "INFO" lab_2.txt
+```
+
+Display line numbers with matching results:
+
+```bash
+grep -n "memory" lab_2.txt
+```
+
+Search for multiple patterns:
+
+```bash
+grep -En "memory|connection" lab_2.txt
+```
+
+### Skills Developed
+
+- Pattern matching
+- Case-insensitive searching
+- Counting matches
+- Searching multiple patterns
+- Displaying matching line numbers
+- Extracting relevant information from text files
+
+---
+
+## ✏️ Part C: Text Transformation with `sed`
+
+### Objective
+
+Use the `sed` stream editor to modify, extract, and filter structured text.
+
+### Task 1: Replace `INFO` with `INFORMATION`
+
+Replace all occurrences of `INFO` with `INFORMATION` and save the result as `updated_log.txt`.
+
+```bash
+sed 's/INFO/INFORMATION/g' lab_2.txt > updated_log.txt
+```
+
+---
+
+### Task 2: Extract WARNING Entries
+
+Extract the timestamp and message from lines containing `WARNING` and save the output as:
+
+```text
+warnings.txt
+```
+
+This task demonstrates how `sed` can select and transform specific log entries.
+
+---
+
+### Task 3: Remove DEBUG Entries
+
+Remove `DEBUG` entries and save the cleaned output as:
+
+```text
+cleaned_log.txt
+```
+
+---
+
+### Task 4: Replace `user` with `student`
+
+Replace all occurrences of:
+
+```text
+user
+```
+
+with:
+
+```text
+student
+```
+
+and save the output as:
+
+```text
+modified_log.txt
+```
+
+Example syntax:
+
+```bash
+sed 's/user/student/g' lab_2.txt > modified_log.txt
+```
+
+---
+
+### Task 5: Add `Log Entry:` to Each Line
+
+Insert:
+
+```text
+Log Entry:
+```
+
+at the beginning of every line.
+
+Example:
+
+```bash
+sed 's/^/Log Entry: /' lab_2.txt > labeled_log.txt
+```
+
+The output is saved as:
+
+```text
+labeled_log.txt
+```
+
+---
+
+### Task 6: Keep Only Successful Operations
+
+Keep only lines containing:
+
+```text
+successfully
+```
+
+and save the output as:
+
+```text
+success_log.txt
+```
+
+---
+
+### `sed` Concepts Practiced
+
+| Syntax | Purpose |
+|--------|---------|
+| `s/pattern/replacement/` | Substitute matching text |
+| `g` | Replace all matching occurrences |
+| `d` | Delete selected lines |
+| `p` | Print selected lines |
+| `^` | Match the beginning of a line |
+| `>` | Redirect command output to a file |
+
+### Output Files Generated
+
+```text
+updated_log.txt
+warnings.txt
+cleaned_log.txt
+modified_log.txt
+labeled_log.txt
+success_log.txt
+```
+
+### Skills Developed
+
+- Text substitution
+- Pattern-based filtering
+- Regular expressions
+- Text extraction
+- Output redirection
+- Automated text transformation
+
+---
+
+## 📊 Part D: Structured Text Processing with `awk`
+
+### Objective
+
+Use `awk` to process structured log data by working with fields, patterns, record numbers, and conditions.
+
+### Tasks
+
+1. Print timestamps and messages for `ERROR` entries.
+2. Count the total number of lines in `lab_2.txt`.
+3. Display timestamps and messages containing `Executing command`.
+4. Calculate the total number of `INFO` lines.
+5. Display entries containing `memory` with their timestamps.
+6. Display entries mentioning `access` with their line numbers.
+
+### Important `awk` Syntax
+
+| Syntax | Purpose |
+|--------|---------|
+| `$0` | Entire current line |
+| `$1` | First field |
+| `$2` | Second field |
+| `$3` | Third field |
+| `NR` | Current record or line number |
+| `print` | Display selected data |
+| `END` | Execute after all records are processed |
+
+### Example Commands
+
+Display lines containing `ERROR`:
+
+```bash
+awk '/ERROR/ {print $0}' lab_2.txt
+```
+
+Count the total number of lines:
+
+```bash
+awk 'END {print NR}' lab_2.txt
+```
+
+Display matching lines with their line numbers:
+
+```bash
+awk '/access/ {print NR, $0}' lab_2.txt
+```
+
+Count `INFO` entries:
+
+```bash
+awk '/INFO/ {count++} END {print count}' lab_2.txt
+```
+
+### Skills Developed
+
+- Field-based text processing
+- Structured record analysis
+- Conditional filtering
+- Pattern matching
+- Line counting
+- Record counting
+- Extracting selected fields
+
+---
+
+## 📦 Part E: File Archiving and Compression with `tar`
+
+### Objective
+
+Create, compress, inspect, remove, and restore Linux directory structures using `tar`.
+
+### Directory Structure
+
+The following directory hierarchy was created:
+
+```text
+lab2/
+└── dir1/
+    ├── dir2/
+    │   └── dir3/
+    └── dir4/
+```
+
+All assignment files were moved into:
+
+```text
+lab2/dir1/dir2/dir3/
+```
+
+### Tasks
+
+1. Create the required directory structure.
+2. Move all assignment files into `dir3`.
+3. Archive and compress the `lab2` directory.
+4. Display the contents of the archive.
+5. Remove the original directory.
+6. Extract the archive and restore the files.
+
+### `tar` Options Practiced
+
+| Option | Purpose |
+|--------|---------|
+| `-c` | Create an archive |
+| `-x` | Extract an archive |
+| `-t` | List archive contents |
+| `-z` | Use gzip compression |
+| `-v` | Display files being processed |
+| `-f` | Specify the archive filename |
+
+### Create the Directory Structure
+
+```bash
+mkdir -p lab2/dir1/dir2/dir3
+mkdir -p lab2/dir1/dir4
+```
+
+### Create a Compressed Archive
+
+```bash
+tar -czvf lab2.tar.gz lab2/
+```
+
+### Display Archive Contents
+
+```bash
+tar -tzvf lab2.tar.gz
+```
+
+### Remove the Original Directory
+
+```bash
+rm -r lab2/
+```
+
+### Extract the Archive
+
+```bash
+tar -xzvf lab2.tar.gz
+```
+
+### Skills Developed
+
+- Directory organization
+- File movement
+- File archiving
+- gzip compression
+- Archive inspection
+- Archive extraction
+- Backup and restoration workflows
+
+---
+
+## 🛠️ Technical Skills Developed
+
+| Category | Skills |
+|----------|--------|
+| Operating System | Ubuntu Linux |
+| Shell Environment | Bash |
+| File Editing | `nano` |
+| Text Searching | `grep` |
+| Stream Editing | `sed` |
+| Structured Text Processing | `awk` |
+| Regular Expressions | Pattern matching and substitution |
+| Output Redirection | `>` |
+| File Management | `mkdir`, `mv`, `rm` |
+| Archiving | `tar`, gzip |
+| Log Analysis | Searching, filtering, and extracting system events |
+
+---
+
+## 🎯 Key Learning Outcomes
+
+Through this assignment, I developed practical experience in:
+
+- Creating and modifying text files from the Linux terminal
+- Searching structured text using `grep`
+- Performing case-insensitive searches
+- Counting and locating matching records
+- Transforming text using `sed`
+- Applying regular expressions
+- Processing structured records using `awk`
+- Working with fields and line numbers
+- Redirecting command output into files
+- Creating and extracting compressed archives
+- Combining Linux utilities into command-line workflows
+
+---
+
+## 🧬 Relevance to Bioinformatics
+
+Linux text-processing utilities are highly relevant to bioinformatics because many commonly used biological data formats are text-based.
+
+The skills introduced in this assignment can later be applied to files such as:
+
+- FASTA
+- FASTQ
+- BED
+- GFF/GTF
+- SAM
+- VCF
+- Bioinformatics pipeline log files
+
+Potential bioinformatics applications include:
+
+- Searching genomic files for specific identifiers
+- Filtering genomic or sequencing records
+- Counting matching sequences or variants
+- Extracting selected columns or fields
+- Modifying sequence headers
+- Processing annotation files
+- Inspecting computational pipeline logs
+- Preparing datasets for downstream analysis
+- Compressing and archiving biological data
 
 ---
 
