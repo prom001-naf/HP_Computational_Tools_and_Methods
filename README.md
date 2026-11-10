@@ -788,6 +788,12 @@ Potential bioinformatics applications include:
 
 ---
 
+## 🖥️ Assignment 2: Coding Assignment
+
+The completed Assignment 2 coding work is included as `Coding_Assignment_2.pdf` alongside the Linux text-processing and log-analysis assignment materials.
+
+---
+
 ## 🚀 Future Development
 
 As the course progresses, this repository will be updated with additional assignments and projects involving computational tools and methods used in bioinformatics.
@@ -800,4 +806,5 @@ As the course progresses, this repository will be updated with additional assign
 Clinical Bioinformatics | Humber Polytechnic
 
 **Research Interests:** Bioinformatics, Computational Biology, Cancer Genomics, and Biomedical Data Analysis
+
 
