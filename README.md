@@ -7,6 +7,18 @@ This repository documents my development of foundational computational skills us
 
 These skills provide a foundation for working with bioinformatics software, biological datasets, and computational research environments.
 
+## Portfolio overview
+
+This repository documents three completed Linux and Bash course assignments. Assignment 3 includes runnable Bash scripts and screenshots; Assignments 1 and 2 are preserved as submitted PDFs.
+
+| Assignment | Focus | Deliverables |
+|------------|-------|--------------|
+| Assignment 1 | Filesystem navigation, directories, and file operations | [Submission PDF](assignments/assignment_01/assignment_01_submission.pdf) |
+| Assignment 2 | Searching and transforming text with grep, sed, and awk; archiving with tar | [Submission PDF](assignments/assignment_02/assignment_02_submission.pdf) · [Coding assignment](assignments/assignment_02/coding_assignment_02.pdf) |
+| Assignment 3 | Bash file automation, input validation, and conditional responses | [Scripts](assignments/assignment_03/scripts/) · [Screenshots](assignments/assignment_03/evidence/) |
+
+**Tools:** Ubuntu Linux, Bash, grep, sed, awk, and tar.
+
 ## Repository organization
 
 Completed coursework is grouped by assignment. Assignment 3 keeps source scripts separate from screenshot evidence.
@@ -131,7 +143,7 @@ mkdir -p ~/STUDENT_ID_assignment/lesson1/partA/dir1/subdir1
 touch file1.txt file2.txt file3.txt file4.txt file5.txt
 
 # Display directory structure
--R ~/STUDENT_ID_assignment
+tree ~/STUDENT_ID_assignment
 
 # View command history
 history
@@ -951,6 +963,18 @@ Through this assignment, I developed practical experience in:
 - Handling numeric comparisons with leading zeroes
 - Recording user-provided information in a structured text file
 - Displaying meaningful status and validation messages
+
+### Run the Scripts
+
+Both scripts write files relative to the current working directory. Run them from a temporary directory so generated files stay out of the repository:
+
+```bash
+repo_root="$PWD"
+work_dir="$(mktemp -d)"
+cd "$work_dir"
+bash "$repo_root/assignments/assignment_03/scripts/file_manager.sh"
+bash "$repo_root/assignments/assignment_03/scripts/user_greet.sh"
+```
 
 ---
 
