@@ -7,6 +7,26 @@ This repository documents my development of foundational computational skills us
 
 These skills provide a foundation for working with bioinformatics software, biological datasets, and computational research environments.
 
+## Repository organization
+
+Completed coursework is grouped by assignment. Assignment 3 keeps source scripts separate from screenshot evidence.
+
+```text
+assignments/
+├── assignment_01/              # Assignment 1 submission
+├── assignment_02/              # Assignment 2 submission and coding assignment
+└── assignment_03/
+    ├── coding_assignment_03_2026.pdf
+    ├── scripts/                # Bash solutions
+    └── evidence/               # Execution screenshots
+```
+
+- [Assignment 1 submission](assignments/assignment_01/assignment_01_submission.pdf)
+- [Assignment 2 submission](assignments/assignment_02/assignment_02_submission.pdf) and [coding assignment](assignments/assignment_02/coding_assignment_02.pdf)
+- [Assignment 3 brief](assignments/assignment_03/coding_assignment_03_2026.pdf), [scripts](assignments/assignment_03/scripts/), and [evidence](assignments/assignment_03/evidence/)
+
+PDFs are retained as submitted. Bash source files are plain text and can be reviewed or run in a Bash-compatible environment.
+
 ---
 
 ## 📚 Course Overview
@@ -98,7 +118,7 @@ STUDENT_ID_assignment/
 | `mkdir -p` | Create nested directories |
 | `touch` | Create empty files |
 | `ls` | List directory contents |
-| `R` | Display directory hierarchy |
+| `tree` | Display directory hierarchy |
 | `history` | Display previously executed commands |
 
 #### Example Commands
@@ -165,7 +185,7 @@ Practice navigating the Linux filesystem and performing common file operations u
 | `mv` | Move or rename files |
 | `cp` | Copy files |
 | `rm` | Remove files |
-| `R` | Verify directory structure |
+| `tree` | Verify directory structure |
 | `history` | Review executed commands |
 
 #### Example Commands
@@ -794,6 +814,11 @@ The completed Assignment 2 coding work is included as `Coding_Assignment_2.pdf` 
 
 ---
 
+## Assignment 3: Bash Scripting and Input Validation
+
+The Assignment 3 folder contains the assignment brief, two Bash scripts, and screenshots documenting execution. The scripts cover directory and file management and a user greeting workflow with input validation. See the [assignment folder](assignments/assignment_03/) for the brief, [scripts](assignments/assignment_03/scripts/), and [evidence](assignments/assignment_03/evidence/).
+
+---
 ## 🚀 Future Development
 
 As the course progresses, this repository will be updated with additional assignments and projects involving computational tools and methods used in bioinformatics.
