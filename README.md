@@ -302,23 +302,6 @@ These skills establish a foundation for more advanced computational workflows.
 
 ---
 
-## 🧬 Relevance to Bioinformatics
-
-Linux is widely used in bioinformatics because many computational biology tools and analytical workflows operate through command-line environments.
-
-The skills introduced in this assignment are relevant to:
-
-- Organizing genomic and transcriptomic datasets.
-- Navigating directories containing FASTQ, FASTA, BAM, and VCF files.
-- Managing input and output files for bioinformatics software.
-- Working with remote Linux servers and high-performance computing environments.
-- Preparing for automated data processing pipelines.
-- Supporting reproducible computational research.
-
-Although this assignment focuses on foundational filesystem operations, these concepts are essential for more advanced bioinformatics analyses.
-
----
-
 ## 🖥️ Assignment 2: Linux Text Processing and Log File Analysis
 
 ### 📌 Assignment Overview
@@ -780,40 +763,6 @@ Through this assignment, I developed practical experience in:
 
 ---
 
-## 🧬 Relevance to Bioinformatics
-
-Linux text-processing utilities are highly relevant to bioinformatics because many commonly used biological data formats are text-based.
-
-The skills introduced in this assignment can later be applied to files such as:
-
-- FASTA
-- FASTQ
-- BED
-- GFF/GTF
-- SAM
-- VCF
-- Bioinformatics pipeline log files
-
-Potential bioinformatics applications include:
-
-- Searching genomic files for specific identifiers
-- Filtering genomic or sequencing records
-- Counting matching sequences or variants
-- Extracting selected columns or fields
-- Modifying sequence headers
-- Processing annotation files
-- Inspecting computational pipeline logs
-- Preparing datasets for downstream analysis
-- Compressing and archiving biological data
-
----
-
-## 🖥️ Assignment 2: Coding Assignment
-
-The completed Assignment 2 coding work is included as `Coding_Assignment_2.pdf` alongside the Linux text-processing and log-analysis assignment materials.
-
----
-
 ## 🖥️ Assignment 3: Bash Scripting and Input Validation
 
 ### 📌 Assignment Overview
@@ -1002,12 +951,6 @@ Through this assignment, I developed practical experience in:
 - Handling numeric comparisons with leading zeroes
 - Recording user-provided information in a structured text file
 - Displaying meaningful status and validation messages
-
----
-
-## 🧬 Relevance to Bioinformatics
-
-Reliable shell scripts help organize analysis files and automate repeated command-line tasks. Input validation can reduce errors when scripts receive sample identifiers or other user-provided values, while clear status messages make computational workflows easier to follow and review.
 
 ---
 
