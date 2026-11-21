@@ -953,7 +953,7 @@ Write the collected information to a student-specific file:
 
 ```bash
 filename="user_input_${STUDENT_ID}.txt"
-printf 'Name: %s\\nAge: %s\\n' "$name" "$age" > "$filename"
+printf 'Name: %s\nAge: %s\n' "$name" "$age" > "$filename"
 echo "Your information has been saved in $filename."
 ```
 
