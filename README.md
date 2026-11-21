@@ -814,11 +814,203 @@ The completed Assignment 2 coding work is included as `Coding_Assignment_2.pdf` 
 
 ---
 
-## Assignment 3: Bash Scripting and Input Validation
+## 🖥️ Assignment 3: Bash Scripting and Input Validation
 
-The Assignment 3 folder contains the assignment brief, two Bash scripts, and screenshots documenting execution. The scripts cover directory and file management and a user greeting workflow with input validation. See the [assignment folder](assignments/assignment_03/) for the brief, [scripts](assignments/assignment_03/scripts/), and [evidence](assignments/assignment_03/evidence/).
+### 📌 Assignment Overview
+
+This assignment introduces Bash scripting to automate file and directory operations and to create an interactive program with input validation.
+
+The work is organized into two scripts:
+
+1. File and directory management with `file_manager.sh`
+2. User interaction, age-based responses, and input validation with `user_greet.sh`
+
+The [assignment brief](assignments/assignment_03/coding_assignment_03_2026.pdf), [scripts](assignments/assignment_03/scripts/), and [execution evidence](assignments/assignment_03/evidence/) are included in this repository.
 
 ---
+
+## 🗂️ Part A: File Manipulation Script
+
+### Objective
+
+Create a Bash script that uses a student ID to create and organize a set of files and directories.
+
+### Requirements and Tasks
+
+1. Prompt for a `STUDENT_ID`.
+2. Create a directory named `<STUDENT_ID>_my_files` if it does not already exist.
+3. Create `file1.txt`, `file2.txt`, and `file3.txt` inside that directory.
+4. Rename `file3.txt` to `logfile_<STUDENT_ID>.txt`.
+5. Create a `backup_<STUDENT_ID>` subdirectory and move `file1.txt` into it.
+6. Print a status message after each file and directory operation.
+
+The script also validates the student ID, allowing letters, numbers, underscores, and hyphens.
+
+### Resulting Directory Structure
+
+For a student ID represented as `STUDENT_ID`, the resulting structure is:
+
+```text
+STUDENT_ID_my_files/
+├── file2.txt
+├── logfile_STUDENT_ID.txt
+└── backup_STUDENT_ID/
+    └── file1.txt
+```
+
+### Commands and Constructs Practiced
+
+| Command / Construct | Purpose |
+|--------------------|---------|
+| `read -r` | Read input without treating backslashes specially |
+| `while` | Repeat a prompt until the input is valid |
+| `[[ ... ]]` and `=~` | Test input against a regular expression |
+| `mkdir -p` | Create a directory if needed |
+| `touch` | Create empty files |
+| `mv` | Rename and move files |
+| `echo` | Display status messages |
+| `set -e` | Stop the script when a command fails |
+
+### Example Commands
+
+Validate a student ID and create the working directory:
+
+```bash
+while [[ ! "$STUDENT_ID" =~ ^[[:alnum:]_-]+$ ]]; do
+    read -r -p "Use letters, numbers, underscores or hyphens for STUDENT_ID: " STUDENT_ID
+done
+
+directory="${STUDENT_ID}_my_files"
+mkdir -p -- "$directory"
+```
+
+Create the files, rename `file3.txt`, and move `file1.txt` into the backup directory:
+
+```bash
+for filename in file1.txt file2.txt file3.txt; do
+    touch -- "$directory/$filename"
+done
+
+logfile="logfile_${STUDENT_ID}.txt"
+mv -- "$directory/file3.txt" "$directory/$logfile"
+
+backup="backup_${STUDENT_ID}"
+mkdir -p -- "$directory/$backup"
+mv -- "$directory/file1.txt" "$directory/$backup/file1.txt"
+```
+
+### Skills Developed
+
+- Automating file creation and organization
+- Using variables to construct file and directory names
+- Validating identifiers with regular expressions
+- Repeating prompts with loops
+- Renaming and moving files
+- Reporting operation status
+
+---
+
+## 👋 Part B: User Interaction Script
+
+### Objective
+
+Create a Bash script that collects a user's name, age, and student ID, then responds based on the age and saves the provided details to a file.
+
+### Tasks
+
+1. Prompt for the user's name, age, and `STUDENT_ID`.
+2. Validate the age as a non-negative whole number and prompt again when the input is invalid.
+3. Validate the student ID using letters, numbers, underscores, or hyphens.
+4. Greet the user with `Hello <name>, welcome to the BINF5002 lab.`
+5. Display an age-based message:
+   - Below 18: `You are too young to be in this course!`
+   - 18 or older: `Great to have you here!`
+6. Write the name and age to `user_input_<STUDENT_ID>.txt`.
+7. Confirm that the information was saved.
+
+### Input Validation and Conditional Logic
+
+| Input / Construct | Behavior |
+|-------------------|----------|
+| Age matching `^[0-9]+$` | Accepts non-negative whole numbers |
+| Student ID matching `^[[:alnum:]_-]+$` | Accepts letters, numbers, underscores, and hyphens |
+| `while` loop | Re-prompts when age or student ID is invalid |
+| `if / else` | Selects the age-based response |
+| Leading-zero handling | Normalizes values such as `018` before comparison |
+
+### Example Commands
+
+Prompt again until the age contains only digits:
+
+```bash
+read -r -p "Enter your age: " age
+while [[ ! "$age" =~ ^[0-9]+$ ]]; do
+    read -r -p "Invalid age. Please enter a non-negative whole number: " age
+done
+```
+
+Write the collected information to a student-specific file:
+
+```bash
+filename="user_input_${STUDENT_ID}.txt"
+printf 'Name: %s\\nAge: %s\\n' "$name" "$age" > "$filename"
+echo "Your information has been saved in $filename."
+```
+
+### Output File Generated
+
+```text
+user_input_<STUDENT_ID>.txt
+```
+
+The file contains the entered name and age, each on its own line.
+
+### Skills Developed
+
+- Collecting interactive command-line input
+- Validating numeric and identifier input
+- Implementing loops and conditional branches
+- Comparing ages safely, including values with leading zeroes
+- Writing formatted text to a file
+- Providing clear user feedback
+
+---
+
+## 🛠️ Technical Skills Developed
+
+| Category | Skills |
+|----------|--------|
+| Operating System | Ubuntu Linux |
+| Shell Environment | Bash |
+| Variables and Input | Variables, `read -r`, prompts |
+| Validation | Regular expressions, conditional tests |
+| Control Flow | `while` loops, `for` loops, `if / else` |
+| File Management | `mkdir`, `touch`, `mv` |
+| Output | `echo`, `printf`, output redirection |
+| Reliability | Quoting, explicit command failure handling |
+
+---
+
+## 🎯 Key Learning Outcomes
+
+Through this assignment, I developed practical experience in:
+
+- Writing Bash scripts for repeatable file-management tasks
+- Using variables to generate student-specific paths and filenames
+- Validating interactive input before using it
+- Applying loops and conditionals to control program behavior
+- Handling numeric comparisons with leading zeroes
+- Recording user-provided information in a structured text file
+- Displaying meaningful status and validation messages
+
+---
+
+## 🧬 Relevance to Bioinformatics
+
+Reliable shell scripts help organize analysis files and automate repeated command-line tasks. Input validation can reduce errors when scripts receive sample identifiers or other user-provided values, while clear status messages make computational workflows easier to follow and review.
+
+---
+
 ## 🚀 Future Development
 
 As the course progresses, this repository will be updated with additional assignments and projects involving computational tools and methods used in bioinformatics.
